@@ -10,7 +10,7 @@
 ![Docker](https://img.shields.io/badge/Docker-Local_Environment-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Apache](https://img.shields.io/badge/Apache-Self--Hosted-D22128?style=for-the-badge&logo=apache&logoColor=white)
 
-[**View Live Portfolio**](https://www.fizzyjamal.site)
+[**View Live Portfolio**](https://www.fizzyjamal.com)
 
 *The second iteration of my portfolio—rebuilt to reflect the transition from learning front-end fundamentals to building and operating real systems.*
 
