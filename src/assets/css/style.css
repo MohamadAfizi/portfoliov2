@@ -1,0 +1,478 @@
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Vanta.js background container */
+#vanta-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-content-z {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animation for content */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-content {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Glow effect for active tab */
+.active-tab {
+    position: relative;
+}
+
+.active-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 10px #fff;
+}
+
+body {
+    font-size: 0.9rem;
+}
+
+.skill-badge {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s, transform 0.3s ease;
+    border: 1px solid #222;
+    background: transparent;
+    color: #e5e7eb;
+    box-shadow: 0 1px 4px #0002;
+}
+
+.skill-badge.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skill-badge.visible:hover {
+    transform: scale(1.1);
+}
+
+.inner-tab-btn {
+    border: none;
+    outline: none;
+    background: transparent;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.active-inner-tab {
+    color: #fff;
+}
+
+.active-inner-tab::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+/* Card Styles */
+.card {
+    background: #111;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow:
+        0 0 5px rgba(109, 239, 248, 0.1),
+        0 0 10px rgba(109, 239, 248, 0.05),
+        0 0 20px rgba(109, 239, 248, 0.02);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    animation: smoothWaveGlow 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card.no-hover:hover {
+    transform: none;
+    animation: none;
+    box-shadow:
+        0 0 5px rgba(109, 239, 248, 0.1),
+        0 0 10px rgba(109, 239, 248, 0.05),
+        0 0 20px rgba(109, 239, 248, 0.02);
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 180px;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+}
+
+.image-container img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.image-container img:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.image-container img:nth-child(3) {
+    animation-delay: 6s;
+}
+
+@keyframes fade {
+    0%, 16.66% { opacity: 0; }
+    16.66%, 50% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* Specific override for cards without image */
+.no-image-card .image-container {
+    display: none;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.card-content {
+    flex: 1;
+    padding: 15px;
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.card-content p {
+    word-wrap: break-word;
+    flex-shrink: 0;
+    line-height: 1.5;
+}
+
+.card-content .flex.justify-end {
+    margin-top: auto;
+}
+
+.inline-readmore {
+    color: #6defF8;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-left: 6px;
+}
+
+.inline-readmore:hover {
+    color: #0ff;
+    text-decoration: underline;
+}
+
+@keyframes smoothWaveGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 5px rgba(109, 239, 248, 0.4),
+            0 0 15px rgba(109, 239, 248, 0.3),
+            0 0 30px rgba(109, 239, 248, 0.2);
+    }
+    50% {
+        box-shadow:
+            0 0 10px rgba(109, 239, 248, 0.6),
+            0 0 25px rgba(109, 239, 248, 0.5),
+            0 0 50px rgba(109, 239, 248, 0.4);
+    }
+}
+
+/* Modal scrollbar */
+#modalContent::-webkit-scrollbar {
+    width: 6px;
+}
+
+#modalContent::-webkit-scrollbar-track {
+    background: #222;
+}
+
+#modalContent::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 3px;
+}
+
+/* Accordion Styles */
+.accordion-item {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    color: #6defF8;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+    background: #1a1a1a;
+}
+
+.accordion-icon {
+    transition: transform 0.3s ease;
+    color: #6defF8;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 20px;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 800px;
+    padding: 0 20px 16px 20px;
+    overflow: visible;
+}
+
+.accordion-content p {
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+.accordion-subtitle {
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 0;
+    display: block;
+}
+
+.accordion-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* Skill Block Styles - W3Schools Style */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.skill-block {
+    display: flex;
+    align-items: center;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: 0.3s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Specific Excel Branding */
+.skill-block.excel {
+    background: rgba(33, 115, 70, 0.05);
+    border: 1px solid rgba(33, 115, 70, 0.4);
+    border-left: 4px solid #217346;
+}
+
+/* MS Learn Branding - Grey with blue undertone */
+.skill-block.mslearn {
+    background: rgba(0, 120, 212, 0.05);
+    border: 1px solid rgba(0, 120, 212, 0.3);
+    border-left: 4px solid #0078D4;
+}
+
+/* Salesforce Branding - Blue with white */
+.skill-block.salesforce {
+    background: rgba(0, 161, 224, 0.05);
+    border: 1px solid rgba(0, 161, 224, 0.3);
+    border-left: 4px solid #00A1E0;
+}
+
+/* Scrollable skills container */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+    max-height: 150px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #444 #111;
+}
+
+.skills-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.skills-container::-webkit-scrollbar-track {
+    background: #111;
+}
+
+.skills-container::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 2px;
+}
+
+/* Icon Box inside the block */
+.skill-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    margin-right: 12px;
+    font-weight: 900;
+    font-size: 14px;
+    font-family: "Arial Black", sans-serif;
+}
+
+.excel .skill-icon {
+    background: #217346;
+    color: white;
+}
+
+/* Text Formatting */
+.skill-name {
+    font-size: 14px;
+    font-weight: normal;
+    color: #e0e0e0;
+    letter-spacing: 0.5px;
+}
+
+/* Tech Tag Styles - Pill shaped */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tech-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #6defF8;
+    background: rgba(109, 239, 248, 0.1);
+    border: 1px solid rgba(109, 239, 248, 0.3);
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* Description Container - Scrollable */
+.description-container {
+    max-height: 100px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding-right: 4px;
+}
+
+.description-container p {
+    color: #9ca3af;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.description-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.description-container::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.description-container::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 2px;
+}
+
+/* Skill Item Styles - Plain text with icon */
+.skill-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    font-size: 12px;
+    color: #e5e7eb;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s, transform 0.3s ease;
+}
+
+.skill-item i {
+    font-size: 16px;
+}
+
+.skill-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
